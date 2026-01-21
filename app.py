@@ -1,11 +1,17 @@
 from flask import Flask, jsonify
 from flask_httpauth import HTTPBasicAuth
+import os
 
 app = Flask(__name__)
 auth = HTTPBasicAuth()
 
-# change these later if you want
-USERS = {"sac_user": "password123"}
+# Read credentials from environment variables
+SAC_USER = os.environ.get("SAC_USER", "sac_user")
+SAC_PASSWORD = os.environ.get("SAC_PASSWORD", "password123")
+
+USERS = {
+    SAC_USER: SAC_PASSWORD
+}
 
 @auth.verify_password
 def verify(user, pwd):
@@ -22,4 +28,4 @@ def products():
     })
 
 if __name__ == "__main__":
-    app.run(h
+    app.run(host="0.0.0.0", port=10000)
