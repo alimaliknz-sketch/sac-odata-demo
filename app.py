@@ -28,7 +28,7 @@ EDMX = """<?xml version="1.0" encoding="utf-8"?>
         </Key>
         <Property Name="ID" Type="Edm.Int32" Nullable="false" />
         <Property Name="Name" Type="Edm.String" Nullable="true" />
-        <Property Name="Amount" Type="Edm.Decimal" Nullable="true" />
+       <Property Name="Amount" Type="Edm.Int32" Nullable="true" />
       </EntityType>
       <EntityContainer Name="Container" m:IsDefaultEntityContainer="true">
         <EntitySet Name="Products" EntityType="Demo.Product" />
